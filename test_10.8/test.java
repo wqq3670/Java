@@ -13,9 +13,7 @@ public class test{
 				
 				ret *= j;
 				j++;
-			
 			}
-			
 			sum += ret;
 			i++;
 		}
