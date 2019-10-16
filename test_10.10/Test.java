@@ -1,29 +1,102 @@
 
 import java.util.Scanner;
+import java.util.Random;
+
 
 public class Test {
 	
-	//12. 获取一个数二进制序列中所有的偶数位和奇数位，分别输出二进制序列。 
+	public static void game() {
+		
+		int toGuess = random.nextInt(100);
+			while(true) {
+				System.out.print("请输入你猜的数字：");
+			    int myGuess = nextInt();
+				if(myGuess < toGuess) {
+					
+					System.out.println("猜小了！");
+				}else if(myGuess > toGuess) {
+					
+					System.out.println("猜大了！");
+				}else {
+					System.out.println("猜对了！");
+					break;
+				}	
+			}
+		}
+				
+		public static void menu() {
+			//菜单
+			System.out.print("------------------");
+			System.out.print("----- 1.play -----");
+			System.out.print("----- 0.exit -----");
+			System.out.print("------------------");
+		}
+		
+		
+		
 	public static void main(String[] args) {
 		
-		int [] Odd = new int[16];
-		int [] Eve = new int[16];
+		int input = 0;
+		Random random = new Random();
+		Scanner sc = new Scanner(System.in);
+		int toGuess = random.nextInt(100);
+		
+		do {
+			menu();
+			System.out.print("请选择：");
+			input = sc.nextInt();
+			switch(input) {
+				
+				case 1:
+				    game();
+					break;
+				case 0:
+				    System.out.println("退出游戏！"); 
+					break;
+				default :
+					System.out.println("输入错误，请重新输入！");
+					break;
+			}
+			
+		}while(input > 0);
+	sc.close();	
+	}
+	
+	//13. 输出一个整数的每一位.
+	public static void main15(String[] args) {
+		
 		Scanner sc = new Scanner(System.in);
 		System.out.print("请输入一个数：");
 		int n = sc.nextInt();
 		
+		while(n > 0) {
+			System.out.print((n%10)+" ");
+			n /= 10;
+		}
+		sc.close();
+	}
+	
+	//12. 获取一个数二进制序列中所有的偶数位和奇数位，分别输出二进制序列。 
+	public static void main14(String[] args) {
+		
+		int [] Odd = new int[17];
+		int [] Eve = new int[17];
+		Scanner sc = new Scanner(System.in);
+		System.out.print("请输入一个数：");
+		int n = sc.nextInt();
+		int j = 0;
+		int k = 0;
+		System.out.println(n);
 		//奇数位
-		for(int i = 1;i < 32;i+=2) {
-			int j = 0;
-			Odd[j] = ((n>>i)&1);
+		for(int a = 0;a < 32;a+=2) {
+			Odd[j] = ((n>>a)&1);
 			j++;
 		}
-		
+		System.out.println();
 		//偶数位
-		for(int i = 0;i < 32;i+=2) {
-			int j = 0;
-			Eve[j] = ((n>>i)&1);
-			j++;			
+		for(int b = 1;b < 32;b+=2) {
+			Eve[k] = ((n>>b)&1);
+			k++;				
 		}
 		
 		System.out.print("奇数数列为：");
