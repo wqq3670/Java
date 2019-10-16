@@ -4,39 +4,10 @@ import java.util.Random;
 
 
 public class Test {
-	
-	public static void game() {
-		
-		int toGuess = random.nextInt(100);
-			while(true) {
-				System.out.print("请输入你猜的数字：");
-			    int myGuess = nextInt();
-				if(myGuess < toGuess) {
-					
-					System.out.println("猜小了！");
-				}else if(myGuess > toGuess) {
-					
-					System.out.println("猜大了！");
-				}else {
-					System.out.println("猜对了！");
-					break;
-				}	
-			}
-		}
-				
-		public static void menu() {
-			//菜单
-			System.out.print("------------------");
-			System.out.print("----- 1.play -----");
-			System.out.print("----- 0.exit -----");
-			System.out.print("------------------");
-		}
-		
-		
-		
+			
 	public static void main(String[] args) {
 		
-		int input = 0;
+		int input = 2;
 		Random random = new Random();
 		Scanner sc = new Scanner(System.in);
 		int toGuess = random.nextInt(100);
@@ -48,7 +19,7 @@ public class Test {
 			switch(input) {
 				
 				case 1:
-				    game();
+				    game(toGuess);
 					break;
 				case 0:
 				    System.out.println("退出游戏！"); 
@@ -61,6 +32,32 @@ public class Test {
 		}while(input > 0);
 	sc.close();	
 	}
+	
+		public static void menu() {
+			//菜单
+			System.out.println("------------------");
+			System.out.println("----- 1.play -----");
+			System.out.println("----- 0.exit -----");
+			System.out.println("------------------");
+		}
+		
+		public static void game(int toGuess) {
+			while(true) {
+				System.out.print("请输入你猜的数字：");
+				Scanner sc = new Scanner(System.in);
+			    int myGuess = sc.nextInt();
+				if(myGuess < toGuess) {
+					
+					System.out.println("猜小了！");
+				}else if(myGuess > toGuess) {
+					
+					System.out.println("猜大了！");
+				}else {
+					System.out.println("猜对了！");
+					break;
+				}	
+			}
+		}
 	
 	//13. 输出一个整数的每一位.
 	public static void main15(String[] args) {
