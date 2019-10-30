@@ -32,13 +32,10 @@ class Swap {
         this.num = num;
     }
     public void exchange(Swap swap1,Swap swap2) {
-        int c = 0;
-        Swap tmp = new Swap(c);
-
-        tmp = swap1;
-        swap1 = swap2;
-        swap2 = tmp;
-
+        int tmp = swap1.num;
+        swap1.num = swap2.num;
+        swap2.num = tmp;
+        System.out.println("交换中......");
     }
 
 
