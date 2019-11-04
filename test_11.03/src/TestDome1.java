@@ -1,25 +1,49 @@
 public class TestDome1 {
     public static void main(String[] args) {
         MySingleList mySingleList = new MySingleList();
-//        mySingleList.addLast(1);
-//        mySingleList.addLast(2);
-//        mySingleList.addLast(3);
-//        mySingleList.addLast(4);
-//        mySingleList.addLast(5);
-//        mySingleList.display();
+        System.out.println("头插法");
         mySingleList.addFirst(1);
         mySingleList.addFirst(2);
-        mySingleList.addFirst(2);
+        mySingleList.addFirst(3);
         mySingleList.addFirst(4);
         mySingleList.addFirst(5);
+        mySingleList.addFirst(6);
         mySingleList.display();
-        mySingleList.remove(3);
+        System.out.println("尾插法");
+        mySingleList.addLast(0);
+        mySingleList.addLast(7);
         mySingleList.display();
+        System.out.println("将2插入到-1,0,6,10,15位置");
+        mySingleList.addIndex(0,2);
+        mySingleList.addIndex(9,2);
+        mySingleList.addIndex(6,2);
+        mySingleList.addIndex(15,2);
+        mySingleList.addIndex(-1,2);
+        mySingleList.display();
+        System.out.println("查找关键字7是否在单链表当中");
+        System.out.println(mySingleList.contains(7));
+        System.out.println("查找关键字8是否在单链表当中");
+        System.out.println(mySingleList.contains(8));
+        System.out.println("删除第一次出现关键字为2,5,9的节点");
+        mySingleList.display();
+        mySingleList.remove(2);
         mySingleList.remove(5);
+        mySingleList.remove(9);
         mySingleList.display();
-        mySingleList.addLast(2);
+        System.out.println("使用头插法在表头插入2");
+        mySingleList.addFirst(2);
         mySingleList.display();
+        System.out.println("删除所有值为2的节点");
         mySingleList.removeAllKey(2);
+        mySingleList.display();
+        System.out.println("删除所有值为6的节点");
+        mySingleList.removeAllKey(6);
+        mySingleList.display();
+        System.out.println("得到单链表的长度");
+        System.out.println(mySingleList.size());
+        mySingleList.display();
+        System.out.println("清空单链表");
+        mySingleList.clear2();
         mySingleList.display();
     }
 }
