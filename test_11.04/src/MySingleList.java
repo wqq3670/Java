@@ -37,6 +37,7 @@ class MySingleList {
             this.head = node;
         }
     }
+
     //2.尾插法
     public void addLast(int data) {
         //判断第几次插入
@@ -53,6 +54,7 @@ class MySingleList {
         cur.next = node;
         //进行插入
     }
+
     //3.打印单链表中的数据
     public void display() {
         //判断单链表是否为空
@@ -66,6 +68,7 @@ class MySingleList {
         }
         System.out.println();
     }
+
     //4.将data插入到Index位置
     public ListNode searchIndex(int Index) {
         ListNode prev = this.head;
@@ -100,12 +103,23 @@ class MySingleList {
         }
         return count;
     }
-    //5.
-//    public boolean contains(int key) {
-//        ListNode cur
-//    }
 
-    //6.
+    //5.查找关键字key是否在单链表当中
+    public boolean contains(int key) {
+        if(this.head == null) {
+            return false;
+        }
+        ListNode cur = this.head;
+        while(cur != null) {
+            if(cur.data == key) {
+                return true;
+            }
+            cur = cur.next;
+        }
+        return false;
+    }
+
+    //6.删除第一次出现关键字为key的节点
     public ListNode seachPrev(int key) {
         ListNode prev = this.head;
         while(prev.next != null) {
@@ -117,6 +131,10 @@ class MySingleList {
         return null;
     }
     public void remove(int key) {
+        //判断链表是否为空
+        if(this.head == null) {
+            return;
+        }
         if(this.head.data == key) {
             this.head = this.head.next;
         }else {
@@ -138,7 +156,7 @@ class MySingleList {
             return;
         }
         ListNode prev = this.head;
-        ListNode cur = prev.next;
+        ListNode cur = this.head.next;
         while(cur != null) {
             if(prev.next.data == key) {
                 prev.next = cur.next;
@@ -153,8 +171,12 @@ class MySingleList {
         }
     }
 
-    //反转单链表
+    //8.反转单链表
     public ListNode reverseList() {
+        ////判断链表是否为空
+        if(this.head == null) {
+            return null;
+        }
         ListNode cur = this.head;
         ListNode newHead = null;
         ListNode prev = null;
@@ -169,7 +191,8 @@ class MySingleList {
         }
         return newHead;
     }
-    //打印新单链表数据
+
+    //9.打印新(反转后)单链表数据
     public void displaynew(ListNode newHead) {
         //判断单链表是否为空
         if(newHead == null) {
@@ -182,9 +205,13 @@ class MySingleList {
         }
         System.out.println();
     }
-    //
+
+    //10.求一个单链表的中间节点，
+    // 若有两个中间节点，则返回第二个中间节点
     public ListNode middleNode1() {
+        //这个方法将单链表遍历两次
         if(this.head == null) {
+            //判断链表是否为空
             return null;
         }
         ListNode cur = this.head;
@@ -193,6 +220,7 @@ class MySingleList {
         }
         return cur;
     }
+    //这个方法只将单链表遍历了一次，时间复杂度明显减小
     public ListNode middleNode() {
         ListNode fast = this.head;
         ListNode slow = this.head;
@@ -202,6 +230,8 @@ class MySingleList {
         }
         return slow;
     }
+
+    //11.返回该链表的倒数第K个节点
     public ListNode findKthToTail(int k) {
         if(k < 0 || this.head == null) {
             return null;
