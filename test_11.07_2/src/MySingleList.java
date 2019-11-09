@@ -150,7 +150,133 @@ class MySingleList {
         }
         ListNode prev = this.head;
         ListNode cur = this.head.next;
+        while(cur != null) {
+            if(prev.next.data == key) {
+                prev.next = cur.next;
+                cur = cur.next;
+            }else {
+                prev = prev.next;
+                cur = cur.next;
+            }
+        }
+        //处理头结点
+        if(this.head.data == key) {
+            this.head = this.head.next;
+        }
     }
+
+    //8.得到单链表的长度
+    public int size() {
+        return getlength();
+    }
+
+    //9.清空单链表
+    public void clear() {
+        //this.head = null;
+        if(this.head == null) {
+            return;
+        }
+        while(this.head.next != null) {
+            ListNode cur = this.head;
+            this.head.next = cur.next;
+            cur = cur.next;
+        }
+        this.head = null;
+    }
+
+    //10.反转一个单链表
+    public ListNode reverseList() {
+        ListNode prev = null;
+        ListNode cur = this.head;
+        ListNode newHead = null;
+        while(cur != null) {
+            ListNode curNext = cur.next;
+            if(curNext == null) {
+                newHead = cur;
+            }
+            cur.next = prev;
+            prev = cur;
+            cur = curNext;
+        }
+        return newHead;
+    }
+
+    //11.打印单链表中的数据
+        public void displaynew(ListNode newHead) {
+            if(newHead == null) {
+                return;
+            }
+            ListNode cur = newHead;
+            while(cur != null) {
+                System.out.print(cur.data+" ");
+                cur = cur.next;
+            }
+            System.out.println();
+        }
+
+    //12.给定一个单链表，返回链表的中间结点。
+    // 如果有两个中间结点，则返回第二个中间结点。
+    public ListNode middleList() {
+        if(this.head == null) {
+            return null;
+        }
+        ListNode fast = this.head;
+        ListNode slow = this.head;
+        while(fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+
+    public ListNode middleList1() {
+        if(this.head == null) {
+            return null;
+        }
+        ListNode cur = this.head;
+        for (int i = 0; i < getlength()/2; i++) {
+            cur = cur.next;
+        }
+        return cur;
+    }
+
+    //13.输入一个链表，输出该链表中倒数第k个结点
+    public ListNode findthToTail(int k) {
+        if(k < 0) {
+            return null;
+        }
+        ListNode fast = this.head;
+        ListNode slow = this.head;
+        for (int i = 0; i < k - 1; i++) {
+            if(fast.next != null) {
+                fast = fast.next;
+            }else {
+                System.out.println("没有这个节点");
+                return null;
+            }
+        }
+        while(fast.next != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+    public ListNode findthToTail1(int k) {
+        if(this.head == null || k < 0) {
+            return null;
+        }
+        if(k > getlength()) {
+            return null;
+        }
+        ListNode cur = this.head;
+        for (int i = 0; i < getlength() - k; i++) {
+            cur = cur.next;
+
+        }
+        return cur;
+    }
+
+
 
 
 

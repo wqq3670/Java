@@ -13,14 +13,29 @@ public class Test {
         mySingleList.addFirst(3);
         mySingleList.addFirst(4);
         mySingleList.addFirst(5);
+        //mySingleList.addLast(6);
         mySingleList.display();
-        mySingleList.addLast(6);
-        mySingleList.addLast(7);
-        mySingleList.display();
-        mySingleList.addIndex(0,0);
-        mySingleList.addIndex(8,8);
-        mySingleList.display();
-        mySingleList.remove(3);
-        mySingleList.display();
+        //       mySingleList.addLast(6);
+//        mySingleList.addLast(7);
+//        mySingleList.display();
+//        System.out.println(mySingleList.contains(2));
+//        System.out.println(mySingleList.contains(15));
+//        mySingleList.addIndex(0,2);
+//        mySingleList.addIndex(8,2);
+//        mySingleList.addIndex(4,2);
+//        mySingleList.display();
+//        mySingleList.remove(3);
+//        mySingleList.display();
+//        mySingleList.removeAllKey(2);
+//        mySingleList.display();
+//        System.out.println(mySingleList.size());
+//        ListNode node = mySingleList.reverseList();
+//        mySingleList.displaynew(node);
+//        ListNode node = mySingleList.middleList();
+//        System.out.println(node.data);
+        System.out.println(mySingleList.findthToTail(2).data);
+        System.out.println(mySingleList.findthToTail(1).data);
+        System.out.println(mySingleList.findthToTail(5).data);
+
     }
 }
