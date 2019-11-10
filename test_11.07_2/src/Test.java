@@ -8,12 +8,20 @@
 public class Test {
     public static void main(String[] args) {
         MySingleList mySingleList = new MySingleList();
-        mySingleList.addFirst(1);
-        mySingleList.addFirst(2);
-        mySingleList.addFirst(3);
-        mySingleList.addFirst(4);
-        mySingleList.addFirst(5);
-        //mySingleList.addLast(6);
+//        mySingleList.addFirst(5);
+//        mySingleList.addFirst(4);
+//        mySingleList.addFirst(4);
+//        mySingleList.addFirst(3);
+//        mySingleList.addFirst(1);
+//        //mySingleList.addLast(6);
+//        mySingleList.display();
+        mySingleList.addLast(1);
+        mySingleList.addLast(2);
+        mySingleList.addLast(3);
+        //mySingleList.addLast(4);
+        mySingleList.addLast(4);
+        mySingleList.addLast(2);
+        mySingleList.addLast(1);
         mySingleList.display();
         //       mySingleList.addLast(6);
 //        mySingleList.addLast(7);
@@ -33,9 +41,17 @@ public class Test {
 //        mySingleList.displaynew(node);
 //        ListNode node = mySingleList.middleList();
 //        System.out.println(node.data);
-        System.out.println(mySingleList.findthToTail(2).data);
-        System.out.println(mySingleList.findthToTail(1).data);
-        System.out.println(mySingleList.findthToTail(5).data);
+//        System.out.println(mySingleList.findthToTail(2).data);
+        //System.out.println(mySingleList.findthToTail(0).data);
+//        System.out.println(mySingleList.findthToTail(5).data);
+
+//        ListNode bs = mySingleList.partition(3);
+//        mySingleList.displaynew(bs);
+//        ListNode node = mySingleList.partition(4);
+//        mySingleList.displaynew(node);
+//        ListNode newHead = mySingleList.deleteDuplication();
+//        mySingleList.displaynew(newHead);
+        System.out.println(mySingleList.chkPalindrome());
 
     }
 }

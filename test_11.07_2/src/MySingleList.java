@@ -24,6 +24,7 @@ class MySingleList {
     public ListNode head;
 
     public MySingleList() {
+
         this.head  = null;
     }
     //方法
@@ -44,15 +45,17 @@ class MySingleList {
     public void addLast(int data) {
         ListNode node = new ListNode(data);
         //判断单链表是否为空 若空，则为第一次插入
+        ListNode cur = this.head;
         if(this.head == null) {
             this.head = node;
+        }else {
+            while(cur.next != null) {
+                //找尾巴
+                cur = cur.next;
+            }
+            cur.next = node;
         }
-        ListNode cur = this.head;
-        while(cur.next != null) {
-            //找尾巴
-            cur = cur.next;
-        }
-        cur.next = node;
+
     }
     //3.任意位置插入,第一个数据节点为0号下标
     private ListNode searchIndex(int index) {
@@ -242,7 +245,7 @@ class MySingleList {
 
     //13.输入一个链表，输出该链表中倒数第k个结点
     public ListNode findthToTail(int k) {
-        if(k < 0) {
+        if(k < 0 || this.head == null) {
             return null;
         }
         ListNode fast = this.head;
@@ -276,7 +279,144 @@ class MySingleList {
         return cur;
     }
 
+    //14.编写代码，以给定值x为基准将链表分割成两部分，
+    //   所有小于x的结点排在大于或等于x的结点之前
+    public ListNode partition(int x) {
+        ListNode bs = null;
+        ListNode be = null;
+        ListNode as = null;
+        ListNode ae = null;
+        ListNode cur = this.head;
+        while (cur != null) {
+            if(cur.data < x) {
+                //是不是第一次插入
+                if (bs == null) {
+                    bs = cur;
+                    be = cur;
+                } else {
+                    be.next = cur;
+                    be = be.next;
+                }
+            }else {
+                //是不是第一次插入
+                if(as == null) {
+                    as = cur;
+                    ae = cur;
+                }else {
+                    ae.next = cur;
+                    ae = ae.next;
+                }
+            }
+            cur = cur.next;
+        }
+        //第一个区间没有数据
+        if(bs == null) {
+            return as;
+        }
+        be.next = as;
+        if(as != null) {
+            //避免最后一个节点next域不为空而导致的死循环
+            ae.next = null;
+        }
+        return bs;
+    }
 
+    //15. 在一个排序的链表中，存在重复的结点，
+    // 请删除该链表中重复的结点，重复的结点不保留，返回链表头指针
+    // 1  2  2  3  3  4  4  5   ==>  1  5
+    public ListNode deleteDuplication(){
+        if(this.head == null) {
+            return null;
+        }
+        ListNode cur = this.head;
+        ListNode newHead = new ListNode(-1);
+        ListNode tmp = newHead;
+        while (cur != null) {
+            //重复的节点
+            if(cur.next != null
+                    && cur.data == cur.next.data) {
+
+                        while(cur.next != null
+                                && cur.data == cur.next.data) {
+                            cur = cur.next;
+                        }
+                        cur = cur.next;
+            }else {
+                tmp.next = cur;
+                tmp = tmp.next;
+                cur = cur.next;
+            }
+        }
+        tmp.next = null;
+        return newHead.next;
+    }
+
+    //16. 链表的回文结构。
+    public boolean chkPalindrome() {
+        if(this.head == null) {
+            return false;
+        }
+        if(this.head.next == null) {
+            return true;
+        }
+        //1、找到单链表的中间节点
+        ListNode fast = this.head;
+        ListNode slow = this.head;
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        //2、反转单链表
+        ListNode cur = slow.next;
+        while (cur != null) {
+            ListNode curNext = cur.next;
+            cur.next = slow;
+            slow = cur;
+            cur = curNext;
+        }
+        //3、fast/slow往前    head往后走
+        while(slow != this.head) {
+            if(this.head.data != slow.data) {
+                if(this.head.next == slow) {
+                    //处理偶数情况
+                    return true;
+                }
+                this.head = this.head.next;
+                slow = slow.next;
+            }else {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    //17.
+
+    //18. 给定一个链表，返回链表开始入环的第一个节点。
+    // 如果链表无环，则返回 null
+    public ListNode detectCycle() {
+        if(this.head == null) {
+            return null;
+        }
+        ListNode fast = this.head;
+        ListNode slow = this.head;
+        while(fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if(fast == slow) {
+                break;
+            }
+        }
+        if(fast == null || fast.next == null) {
+            return null;
+        }
+        slow = this.head;
+        while(slow != fast) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return slow;
+    }
 
 
 
