@@ -53,7 +53,7 @@ class MySingleList {
      * @return
      */
 
-    public ListNode searchIndex(int index) {
+    private ListNode searchIndex(int index) {
         ListNode prev = this.head;
         for (int i = 0; i < index - 1; i++) {
             prev = prev.next;
@@ -87,7 +87,105 @@ class MySingleList {
         prev.next = node;
         return true;
     }
+    //4.打印单链表中的数据
+    public void display() {
+        if(this.head == null) {
+            return;
+        }
+        ListNode cur = this.head;
+        while(cur != null) {
+            System.out.println(cur.data+" ");
+            cur = cur.next;
+        }
+        System.out.println();
+    }
+    //5.判断单链表中是否包含某个元素
+    public boolean contains(int key) {
+        if(this.head == null) {
+            return false;
+        }
+        ListNode cur = this.head;
+        while(cur != null) {
+            if(cur.data == key) {
+                return true;
+            }
+            cur = cur.next;
+        }
+        return false;
+    }
+    //6.删除第一次出现关键字为key的节点
 
+    /**
+     * 找到被删除节点的前一个节点
+     * @param key
+     * @return
+     */
+    public ListNode searchPrev(int key) {
+        ListNode prev = this.head;
+        while(prev.next != null) {
+            if(prev.next.data == key) {
+                return prev;
+            }
+            prev = prev.next;
+        }
+        return null;
+    }
+    public void remove(int key) {
+        if(this.head == null) {
+            return;
+        }
+        if(this.head.data == key) {
+            this.head = this.head.next;
+            return;
+        }
+        //找前驱
+        ListNode prev = searchPrev(key);
+        if(prev == null) {
+            System.out.println("没有要删除的节点");
+            return;
+        }
+        ListNode del = prev.next;
+        prev.next = del.next;
+    }
+    //7./删除所有值为key的节点
+    public void removeAllKey(int key) {
+        if(this.head == null) {
+            return;
+        }
+        ListNode prev = this.head;
+        ListNode cur = this.head.next;
+        while(cur != null) {
+            if(cur.data == key) {
+                prev.next = cur.next;
+                cur = cur.next;
+            }else {
+                prev = cur;
+                cur = cur.next;
+            }
+        }
+        //处理头结点
+        if(this.head.data == key) {
+            this.head = this.head.next;
+        }
+    }
+    //8.求单链表长度
+    public int size() {
+        return getlength();
+    }
+    //9.清空单链表
+    public void clear() {
+        if(this.head == null) {
+            return;
+        }
+        //1.暴力清除法
+        //this.head = null;
+        //2.温柔清除法(可以直接用this.head操作)
+        ListNode cur = this.head;
+        while(cur.next != null) {
+            cur.next = cur.next.next;
+        }
+        cur = null;
+    }
 
 
 
