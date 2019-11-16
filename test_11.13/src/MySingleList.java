@@ -186,6 +186,201 @@ class MySingleList {
         }
         cur = null;
     }
+    //10.反转单链表
+    public ListNode reverseList() {
+        if(this.head == null) {
+            return null;
+        }
+        ListNode newHead = null;
+        ListNode cur = this.head;
+        ListNode prev = null;
+        while(cur != null) {
+            ListNode curNext = cur.next;
+            if(curNext == null) {
+                newHead = cur;
+            }
+            cur.next = prev;
+            cur = prev;
+            cur = curNext;
+        }
+        return newHead;
+    }
+    //11. 给定一个带有头结点 head 的非空单链表，
+    // 返回链表的中间结点。
+    // 如果有两个中间结点，则返回第二个中间结点。
+    public ListNode middleNode() {
+        if(this.head == null) {
+            return null;
+        }
+        ListNode fast = this.head;
+        ListNode slow = this.head;
+        while(fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+    //时间复杂度较高的方法
+    public ListNode middleNode1() {
+        if(this.head == null) {
+            return null;
+        }
+        ListNode cur = this.head;
+        for (int i = 0; i < getlength()/2; i++) {
+            cur = cur.next;
+        }
+        return cur;
+    }
+    //12. 输入一个链表，输出该链表中倒数第k个结点
+    public ListNode toFindToTail(int k) {
+        if(k < 0 || this.head == null) {
+            return null;
+        }
+        if(k == 0) {
+            ListNode cur = this.head;
+            while(cur.next != null) {
+                cur = cur.next;
+            }
+        return cur;
+        }
+        ListNode fast = this.head;
+        ListNode slow = this.head;
+        for (int i = 0; i < k - 1; i++) {
+            if(fast.next == null) {
+                System.out.println("k值不合法");
+                return null;
+            }
+            fast = fast.next;
+        }
+
+        while(fast.next != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+    public ListNode toFindToTail1(int k) {
+        if(this.head == null) {
+            return null;
+        }
+        if(k < 0 || k > getlength()) {
+            System.out.println("k值不合法");
+            return null;
+        }
+        ListNode cur = this.head;
+        for (int i = 0; i < getlength() - k; i++) {
+            cur = cur.next;
+        }
+        return cur;
+    }
+    //13.编写代码，以给定值x为基准将链表分割成两部分，
+    // 所有小于x的结点排在大于或等于x的结点之前
+    public ListNode partition(int x) {
+        if(this.head == null) {
+            return null;
+        }
+        if(x < 0 || x > getlength()) {
+            return null;
+        }
+        ListNode bs = null;
+        ListNode be = null;
+        ListNode as = null;
+        ListNode ae = null;
+        ListNode cur = this.head;
+        while(cur != null) {
+            if(cur.data < x) {
+                //是否为第一次插入
+                if(bs == null) {
+                    bs = cur;
+                    be = cur;
+                }else {
+                    be.next = cur;
+                    be = cur;
+                }
+            }else {
+                //是否为第一次插入
+                if(as == null) {
+                    as = cur;
+                    ae = cur;
+                }else {
+                    ae.next = cur;
+                    ae = cur;
+                }
+            }
+            cur = cur.next;
+        }
+        //如果没有比x小的，则头为as
+        if(bs == null) {
+            return as;
+        }
+        be.next = as;//将前后两段连接起来
+
+        //防止ae.next 不是null而导致出现死循环
+        if(as != null) {
+            ae.next = null;
+        }
+        return bs;
+    }
+    //14.在一个排序的链表中，存在重复的结点，
+    // 请删除该链表中重复的结点，
+    // 重复的结点不保留，返回链表头指针
+    public ListNode deleteDuplication() {
+        ListNode newHead = new ListNode(-1);
+        ListNode tmp = newHead;
+        ListNode cur = this.head;
+        while(cur != null) {
+            if(cur.next != null
+                    && cur.data == cur.next.data) {
+
+                while(cur.next != null
+                        && cur.data == cur.next.data) {
+
+                    cur = cur.next;
+                }
+                cur = cur.next;
+            }else {
+                cur = tmp.next;
+                tmp =tmp.next;
+                cur = cur.next;
+            }
+        }
+        return newHead.next;
+    }
+
+    //15. 链表的回文结构
+    public boolean chkPalindrome() {
+        if(this.head == null) {
+            return false;
+        }
+        ListNode fast = this.head;
+        ListNode slow = this.head;
+        //找中间节点
+        while(fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        //反转
+        ListNode cur = slow.next;
+        while(cur != null) {
+            ListNode curNext = cur.next;
+            cur.next = slow;
+            slow = cur;
+            cur = curNext;
+        }
+        //一人一步走
+        while(this.head != slow) {
+            if(this.head.data != slow.data) {
+                return false;
+            }
+            //排除1 2 2 1 这种个数为偶数的情况
+            if(this.head.next == slow) {
+                return true;
+            }
+            slow = slow.next;
+            this.head = this.head.next;
+        }
+        return true;
+    }
 
 
 
