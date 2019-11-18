@@ -15,8 +15,8 @@
       <file leaf-file-name="MySingleList.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MySingleList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="381" column="20" lean-forward="true" selection-start-line="381" selection-start-column="20" selection-end-line="381" selection-end-column="20" />
+            <state relative-caret-position="273">
+              <caret line="387" column="50" lean-forward="true" selection-start-line="387" selection-start-column="50" selection-end-line="387" selection-end-column="50" />
               <folding>
                 <element signature="e#337#338#0" expanded="true" />
                 <element signature="e#369#370#0" expanded="true" />
@@ -28,7 +28,7 @@
       <file leaf-file-name="Test1.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Test1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="498">
+            <state relative-caret-position="-1257">
               <caret line="35" column="28" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
             </state>
           </provider>
@@ -71,6 +71,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -87,9 +90,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -168,11 +168,12 @@
       <workItem from="1573818956310" duration="2905000" />
       <workItem from="1573900956588" duration="11501000" />
       <workItem from="1573952910434" duration="988000" />
+      <workItem from="1574081795853" duration="666000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21185000" />
+    <option name="totallyTimeSpent" value="21851000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -213,6 +214,24 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/MySingleList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17145">
+          <caret line="381" column="20" lean-forward="true" selection-start-line="381" selection-start-column="20" selection-end-line="381" selection-end-column="20" />
+          <folding>
+            <element signature="e#337#338#0" expanded="true" />
+            <element signature="e#369#370#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Test1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1575">
+          <caret line="35" column="28" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/MySingleList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="14445">
@@ -287,15 +306,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Test1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
+        <state relative-caret-position="-1257">
           <caret line="35" column="28" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MySingleList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="381" column="20" lean-forward="true" selection-start-line="381" selection-start-column="20" selection-end-line="381" selection-end-column="20" />
+        <state relative-caret-position="273">
+          <caret line="387" column="50" lean-forward="true" selection-start-line="387" selection-start-column="50" selection-end-line="387" selection-end-column="50" />
           <folding>
             <element signature="e#337#338#0" expanded="true" />
             <element signature="e#369#370#0" expanded="true" />

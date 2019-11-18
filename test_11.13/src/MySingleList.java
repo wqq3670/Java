@@ -279,9 +279,6 @@ class MySingleList {
         if(this.head == null) {
             return null;
         }
-        if(x < 0 || x > getlength()) {
-            return null;
-        }
         ListNode bs = null;
         ListNode be = null;
         ListNode as = null;
@@ -381,6 +378,25 @@ class MySingleList {
         }
         return true;
     }
+    //16.给定一个链表，判断链表中是否有环。
+    public boolean hasCycle() {
+        if(this.head == null) {
+            return false;
+        }
+        ListNode fast = this.head;
+        ListNode slow = this.head;
+        while(fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if(fast == slow) {
+                return true;
+            }
+        }
+        return false;
+    }
+    //17.给定一个链表，返回链表开始入环的第一个节点。
+    // 如果链表无环，则返回 null
+
 
     //反转单链表
 //    public ListNode reverse() {
