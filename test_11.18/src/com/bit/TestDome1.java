@@ -16,6 +16,10 @@ import java.util.*;//导入until下的所有包
  * Time: 20:16
  **/
 public class TestDome1 {
+
+    public void func2() {
+        System.out.println("wqq");
+    }
     public static void main(String[] args) {
 
         int[] array = {1,2,3,5,6,8} ;

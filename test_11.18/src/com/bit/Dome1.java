@@ -8,10 +8,10 @@ package com.bit;
  * Time: 20:39
  **/
 public class Dome1 {
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         Demo2 demo2 = new Demo2();
 
         System.out.println(demo2.stuNum);//包访问权限—》
                                         // 只能同一个包中的可以访问
-    }
+    }*/
 }
