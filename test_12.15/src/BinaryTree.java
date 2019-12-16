@@ -19,6 +19,10 @@ class TreeNode {
 }
 public class BinaryTree {
 
+    /**
+     * 建树
+     * @return
+     */
     public TreeNode buildTree() {
         TreeNode root = new TreeNode('A');
         TreeNode B = new TreeNode('B');
@@ -121,10 +125,44 @@ public class BinaryTree {
     }
 
     /**
-     * 子问题思路 =》求叶子节点个数
-     * @param root
-     * @return
+     * 求节点个数
+     * 左子节点的节点个数+右子节点的节点个数+1
      */
+    //1.遍历思路 =》 求节点个数
+    static int size1 = 0;
+    void getSize1(TreeNode root) {
+        if(root == null) {
+            return;
+        }
+        size1++;
+        getSize1(root.left);
+        getSize1(root.right);
+    }
+    //2.子问题思路 =》求叶子节点个数
+    int getSize2(TreeNode root) {
+        if(root == null) {
+            return 0;
+        }
+        return getSize2(root.left) + getSize2(root.right)+1;
+    }
+
+    /**
+     *求叶子节点个数
+     * 左叶子节点的节点个数+右叶子节点的节点个数
+     */
+    //1.遍历思路 =》 求叶子节点个数
+    static int leafSize = 0;
+    void getLeafSize1(TreeNode root) {
+        if(root == null) {
+            return;
+        }
+        if(root.left == null && root.right == null) {
+            leafSize++;
+        }
+        getLeafSize1(root.left);
+        getLeafSize1(root.right);
+    }
+    //2.子问题思路 =》求叶子节点个数
     int getLeafSize2(TreeNode root) {
         if(root == null) {
             return 0;
@@ -136,6 +174,7 @@ public class BinaryTree {
 
     /**
      * 子问题思路 =》求第k层节点个数
+     * A的 第K层的个数 相当于 = （A.left的第K-1层的个数）+（A.right的第K-1层的个数）
      * @param root
      * @param k
      * @return
@@ -171,7 +210,26 @@ public class BinaryTree {
         return ret;
     }
 
+    /**
+     * 给定两个二叉树，编写一个函数来检验它们是否相同。
+     * 如果两个树在结构上相同，并且节点具有相同的值，则认为它们是相同的。
+     * @param p
+     * @param q
+     * @return
+     */
+    public boolean isSameTree(TreeNode p, TreeNode q) {
+        if(p == null && q == null) {
+            return true;
+        }
+        if(p == null && q != null || p != null && q == null) {//结构不相同
+            return false;
+        }
+        if(p.value != q.value) {//值不同
+            return false;
+        }
+        return isSameTree(p.left,q.left) && isSameTree(p.right,q.right);
 
+    }
 
 
 
