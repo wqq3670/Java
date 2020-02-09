@@ -58,13 +58,26 @@ public class TestDemo {
      * @return
      */
     public static int thirdMax(int[] nums) {
-        if(nums.length == 1) {
-            return nums[0];
+        Arrays.sort(nums);
+        if(nums.length < 3) {
+            return nums[nums.length-1];
         }
-        if(nums.length == 2) {
-            return nums[0]>nums[1]?nums[0]:nums[1];
+        int count = 1;
+        int thirdMax = nums[nums.length-1];
+        for (int i = nums.length-1; i >= 0; i--) {
+            if(count == 3) {
+                break;
+            }
+            if(thirdMax != nums[i]) {//如果两个不相等，向前走一步，count++
+                thirdMax = nums[i];
+                count++;
+            }
         }
-
+        //对循环跳出来的数做一个判断，是否是第三大数
+        if(count == 3) {
+            return thirdMax;
+        }
+        return nums[nums.length-1];
     }
     public static void main(String[] args) {
         int[] num = {1, 7, 3, 6, 5, 6};
