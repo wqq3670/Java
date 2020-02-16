@@ -89,6 +89,33 @@ public class TestDemo {
             array[j+1] = tmp;
         }
     }
+    /**
+     * 时间复杂度：O(n^1.3-1.5)
+     * 空间复杂度：O(1)
+     * 稳定性：不稳定的排序
+     * @param array
+     */
+    public static void shellSort(int[] array) {
+        int[] drr = {5,3,1};
+        for (int i = 0; i < drr.length; i++) {
+            shell(array,drr[i]);
+        }
+    }
+    public static void shell(int[] array,int gap) {
+        for (int i = gap; i < array.length; i++) {
+            int tmp = array[i];
+            int j = 0;
+            for (j = i-gap; j >= 0 ; j -= gap) {
+                if(array[j] > tmp) {
+                    array[j+gap] = array[j];
+                }else {
+                    break;
+                }
+            }
+            array[j+gap] = tmp;
+        }
+    }
+
     public static void main(String[] args) {
         int[] array = {54,15,24,89,13,88,66,99,9,52};
         HeapSort(array);//堆排序
