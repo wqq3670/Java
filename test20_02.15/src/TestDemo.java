@@ -58,9 +58,9 @@ public class TestDemo {
         CreatHeap(array);
         int end = array.length-1;
         while(end > 0) {
-            int tmp = array[end];
-            array[end] = array[0];
-            array[0] = tmp;
+            int tmp = array[0];
+            array[0] = array[end];
+            array[end] = tmp;
             adjustDown(array,0,end);//end = 9
             end--;//end = 8
         }
@@ -119,7 +119,7 @@ public class TestDemo {
     public static void main(String[] args) {
         int[] array = {54,15,24,89,13,88,66,99,9,52};
         HeapSort(array);//堆排序
-        insertSort(array);
+        //insertSort(array);
         System.out.println(Arrays.toString(array));
     }
 }
