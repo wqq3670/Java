@@ -1,3 +1,5 @@
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+
 import java.util.Scanner;
 
 /**
@@ -12,23 +14,18 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int num = sc.nextInt();
-        if(num < 2 ) {
-            System.out.println(0);
+        int a = 0;
+        int b = 1;
+        int c = 1;
+        while(c < num) {
+            c = a+b;
+            a = b;
+            b = c;
+        }
+        if(Math.abs(b-num) < Math.abs(c-num)) {
+            System.out.println(Math.abs(b-num));
         }else {
-            for (int i = 0; i < ; i++) {
-                
-            }
+            System.out.println(Math.abs(c-num));
         }
-
-    }
-
-    private static int fib(int num) {
-        if(num == 0) {
-            System.out.println(0);
-        }else if(num == 1 || num == 2) {
-            System.out.println(1);
-        }
-        return fib(num-1)+fib(num-2);
-
     }
 }
