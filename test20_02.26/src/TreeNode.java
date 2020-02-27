@@ -170,9 +170,23 @@ public class TreeNode {
         List<Integer> list = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
         TreeNode cur = root;
-
-
-
+        TreeNode prev= null;
+        while(cur != null || !stack.empty()) {
+            while(cur != null) {
+                stack.push(cur);
+                cur = cur.left;
+            }
+            cur = stack.peek();
+            if(cur.right == null || prev == cur.right) {
+                list.add(cur.val);
+                stack.pop();
+                prev = cur;
+                cur = null;
+            }else {
+                cur = cur.right;
+            }
+        }
+        return list;
     }
 
 }
