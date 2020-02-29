@@ -8,6 +8,9 @@ import java.util.Arrays;
  * Time: 21:33
  **/
 public class Sort {
+	/**
+	堆排序
+	*/
     private static void HeapSort(int[] array) {
         creatHeap(array);
         int end = array.length-1;
@@ -44,6 +47,9 @@ public class Sort {
             }
         }
     }
+	/**
+	冒泡排序
+	*/
     private static void bubbleSort1(int[] array) {
         for (int i = 0; i < array.length-1; i++) {
             boolean flag = false;
@@ -57,6 +63,66 @@ public class Sort {
             }
             if(!flag) {
                 return;
+            }
+        }
+    }
+	/**
+	直接插入排序
+	*/
+	private static void insertSort(int[] array) {
+        for (int i = 1; i < array.length; i++) {
+            int j = 0;
+            int tmp = array[i];
+            for (j = i - 1; j >= 0 ; j--) {
+                if(array[j] > tmp) {
+                    array[j+1] = array[j];
+                }else {
+                    break;
+                }
+            }
+            array[j+1] = tmp;
+        }
+    }
+
+    /**
+     * 希尔排序
+     * 时间复杂度 最好 O（n^1.3~n^1.5）
+     * 空间复杂度 O（1）
+     * 稳定
+     * @param array
+     */
+    private static void shellSort(int[] array) {
+        int[] drr = {5,3,1};
+        for (int i = 0; i < drr.length; i++) {
+            shell(array,drr[i]);
+        }
+    }
+    private static void shell(int[] array, int gap) {
+        for (int i = gap; i < array.length; i++) {
+            int j = 0;
+            int tmp = array[i];
+            for (j = i-gap; j >= 0; j-=gap) {
+                if(array[j] > tmp ) {
+                    array[j+gap] = array[j];
+                }else {
+                    break;
+                }
+            }
+            array[j+gap] = tmp;
+        }
+    }
+
+    /**
+     * 选择排序
+     * 时间复杂度 O（n^2）
+     * 空间复杂度 O（1）
+     * 不稳定
+     * @param array
+     */
+    private static void selectSort(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < ; j++) {
+                
             }
         }
     }
