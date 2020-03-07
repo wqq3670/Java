@@ -8,7 +8,22 @@ import java.util.Scanner;
  * Time: 18:22
  **/
 public class Main1 {
+
+    public static String func1(String str) {
+        String[] strs = str.split(" ");
+        String ret = "";
+        for (int i = 0; i < strs.length; i++) {
+            ret += strs[i];
+        }
+        return ret;
+    }
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        String ret = func1(str);
+        System.out.println(ret);
+    }
+    public static void main1(String[] args) {
         Scanner sc = new Scanner(System.in);
         String str1 = sc.nextLine();
         String str2 = sc.nextLine();
