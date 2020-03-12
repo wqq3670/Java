@@ -33,6 +33,16 @@ public class Main2 {
                 }
             }
         }
+        for (int j = 0; j < row; j++) {
+            if(j%2==0 || j%2==1) {
+                for (int i = 0; i < line; i++) {
+                    if(j%2==0 || j%2==1){
+                        arr[i][j] = 1;
+                    }
+                }
+            }
+
+        }
         for (int i = 0; i < line; i++) {
             for (int j = 0; j < row; j++) {
                 count = count+arr[i][j];
